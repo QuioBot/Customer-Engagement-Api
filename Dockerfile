@@ -19,8 +19,8 @@ COPY ./app /code/app
 RUN python app/bin/download_model
 
 
-# CMD ["uvicorn", "app.sentiment_analyzer.api:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.sentiment_analyzer.api:app", "--host", "0.0.0.0", "--port", "80"]
 
 
-EXPOSE $PORT
-CMD gunicorn --workers=4 --bind 0.0.0.0:$PORT app.sentiment_analyzer.api:app
+# EXPOSE $PORT
+# CMD gunicorn --workers=4 --bind 0.0.0.0:$PORT app.sentiment_analyzer.api:app

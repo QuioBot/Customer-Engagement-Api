@@ -1,6 +1,6 @@
 {
     "BERT_MODEL": "bert-base-cased",
-    "PRE_TRAINED_MODEL": "code/model_state_dict.bin",
+    "PRE_TRAINED_MODEL": "app/assets/model_state_dict.bin",
     "CLASS_NAMES": [
         "negative",
         "neutral",
