@@ -6,6 +6,6 @@ bs4
 requests
 sklearn
 torch
-transformers==2.8.0
+transformers
 pydantic
 gdown
