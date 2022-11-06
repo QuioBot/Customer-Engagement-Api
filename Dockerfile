@@ -12,9 +12,10 @@
 FROM python:3.9
 COPY ./requirements.txt /requirements.txt
 COPY ./start.sh /start.sh
+COPY ./download_model /download_model
 COPY ./config.json /code/config.json
 RUN pip install -r /requirements.txt
+RUN python /download_model
 RUN chmod +x /start.sh
 COPY ./app /app
-RUN python app/bin/download_model
 CMD ["./start.sh"]
