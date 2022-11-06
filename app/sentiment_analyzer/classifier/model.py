@@ -6,7 +6,7 @@ from transformers import BertTokenizer
 
 from .sentiment_classifier import SentimentClassifier
 
-with open("config.json") as json_file:
+with open("app/sentiment_analyzer/classifier/config.json") as json_file:
     config = json.load(json_file)
 
 

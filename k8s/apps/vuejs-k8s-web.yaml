@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vuejs-k8s-web-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: vuejs-k8s-web-deployment
+  template:
+    metadata:
+      labels:
+        app: vuejs-k8s-web-deployment
+    spec:
+      containers:
+        - name: vue-k8s-web
+          image: registry.digitalocean.com/cfe-k8s/vue-k8s-web:latest
+          env:
+            - name: PORT
+              value: "8082"
+          ports:
+          - containerPort: 8082
+      imagePullSecrets:
+          - name: do-registry
+        
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vuejs-k8s-web-service
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8082
+  selector:
+    app: vuejs-k8s-web-deployment
+
+
+
+
+
+
+
