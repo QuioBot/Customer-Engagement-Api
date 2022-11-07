@@ -23,9 +23,9 @@ spec:
         #       name: fastapi-web-env-prod
         env:
           - name: PORT
-            value: "8007"
+            value: "8000"
         ports:
-        - containerPort: 8007
+        - containerPort: 8000
       # imagePullSecrets:
       #   - name: om-k8s   
       # ss
@@ -42,6 +42,6 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 8007
+      targetPort: 8000
   selector:
     app: fastapi-k8s-web-deployment
