@@ -16,16 +16,16 @@ spec:
     spec:
       containers:
       - name: fastapi-k8s-web
-        image: elghibaomar/fastapi-k8s-web:latest
+        image: elghibaomar/fastapi-k8s-web-engagement:latest
         # imagePullPolicy: Always
         # envFrom:
         #   - secretRef:
         #       name: fastapi-web-env-prod
         env:
           - name: PORT
-            value: "8003"
+            value: "8007"
         ports:
-        - containerPort: 8003
+        - containerPort: 8007
       # imagePullSecrets:
       #   - name: om-k8s   
       # ss
@@ -42,6 +42,6 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 8003
+      targetPort: 8007
   selector:
     app: fastapi-k8s-web-deployment
