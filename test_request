@@ -1,5 +1,0 @@
-#!/bin/bash
-
-
-
-http POST http://localhost:8000/predict text="im very good this is shit"

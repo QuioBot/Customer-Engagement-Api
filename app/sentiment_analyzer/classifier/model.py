@@ -4,9 +4,9 @@ import torch
 import torch.nn.functional as F
 from transformers import BertTokenizer
 
-from .sentiment_classifier import SentimentClassifier
+from code.app.sentiment_analyzer.classifier.sentiment_classifier import SentimentClassifier
 
-with open("app/sentiment_analyzer/classifier/config.json") as json_file:
+with open("config.json") as json_file:
     config = json.load(json_file)
 
 
