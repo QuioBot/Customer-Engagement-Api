@@ -24,4 +24,4 @@ COPY ./app /code/app
 
 # CMD ["uvicorn", "app.sentiment_analyzer.api:app", "--host", "0.0.0.0", "--port", "8007"]
 
-CMD ["./start.sh"]
+CMD ["/code/start.sh"]

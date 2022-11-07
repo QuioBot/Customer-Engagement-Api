@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: fastapi-k8s-web
-        image: elghibaomar/fastapi-k8s-web-engagement:latest
+        image: elghibaomar/customer-satisfaction-api:latest
         # imagePullPolicy: Always
         # envFrom:
         #   - secretRef:
