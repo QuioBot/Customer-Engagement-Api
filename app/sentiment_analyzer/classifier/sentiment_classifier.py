@@ -3,7 +3,7 @@ import json
 from torch import nn
 from transformers import BertModel
 
-with open("/code/app/sentiment_analyzer/classifier/config.json") as json_file:
+with open("app/sentiment_analyzer/classifier/config.json") as json_file:
     config = json.load(json_file)
 
 

@@ -11,8 +11,8 @@ import requests
 from bs4 import BeautifulSoup
 
 
-from code.app.sentiment_analyzer.classifier.classifier.model import Model, get_model
-from code.app.sentiment_analyzer.classifier.classifier.rf_model import Rf_Model, rf_get_model
+from app.sentiment_analyzer.classifier.classifier.model import Model, get_model
+from app.sentiment_analyzer.classifier.classifier.rf_model import Rf_Model, rf_get_model
 
 app = FastAPI()
 
