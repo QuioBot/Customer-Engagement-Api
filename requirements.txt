@@ -8,4 +8,6 @@ sklearn
 torch
 transformers
 pydantic
-gdown
+requests
+pytest
+pre-commit

@@ -5,7 +5,7 @@ WORKDIR /app
 
 RUN pip install gdown
 
-RUN python src/bin/download_model
+RUN python src/download/download_model
 
 RUN apt-get update && \
     apt-get install -y \
