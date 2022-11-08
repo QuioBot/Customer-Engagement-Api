@@ -1,26 +1,34 @@
-# 
-FROM python:3.9
+FROM python:3.8-slim
 
-# 
-WORKDIR /code
+COPY . /app
+WORKDIR /app
 
-# 
-COPY ./requirements.txt /code/requirements.txt
+RUN pip install gdown
 
-# COPY ./config.json /code/config.json
-  
+RUN python src/bin/download_model
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN apt-get update && \
+    apt-get install -y \
+    build-essential \
+    python3-dev \
+    python3-setuptools \
+    gcc \
+    make
 
-# 
-COPY ./app /code/app
+# Create a virtual environment in /opt
+RUN python3 -m venv /opt/venv
 
-EXPOSE 8080
-# 
-# RUN python app/bin/download_model
+# Install requirments to new virtual environment
+RUN /opt/venv/bin/pip install -r requirements.txt
 
-# CMD uvicorn app.sentiment_analyzer.api:app --host 0.0.0.0 --port 8000
 
-# CMD ["uvicorn", "app.sentiment_analyzer.api:app", "--host", "0.0.0.0", "--port", $PORT]
+# purge unused
+RUN apt-get remove -y --purge make gcc build-essential \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
 
-CMD ["uvicorn", "app.sentiment_analyzer.api:app"]
+# make entrypoint.sh executable
+RUN chmod +x entrypoint.sh
+
+
+CMD [ "./entrypoint.sh" ]
