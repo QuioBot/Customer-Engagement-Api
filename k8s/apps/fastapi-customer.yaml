@@ -13,7 +13,7 @@ spec:
         app: fastapi-customer-deployment
     spec:
       containers:
-        - name: fastapi-dep
+        - name: fastapi-customer
           image: elghibaomar/fastapi-customer:latest
           env:
             - name: PORT
