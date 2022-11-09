@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.9
 
 COPY . /app
 WORKDIR /app
@@ -18,7 +18,7 @@ RUN apt-get update && \
 # Create a virtual environment in /opt
 RUN python3.9 -m venv /opt/venv
 
-RUN /opt/venv/bin/pip install --upgrade pip
+# RUN /opt/venv/bin/pip install --upgrade pip
 
 
 # Install requirments to new virtual environment
