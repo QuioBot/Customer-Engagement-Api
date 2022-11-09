@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.8-slim
 
 COPY . /app
 WORKDIR /app
@@ -10,8 +10,8 @@ RUN python src/download/download_model
 RUN apt-get update && \
     apt-get install -y \
     build-essential \
-    # python3-dev \
-    # python3-setuptools \
+    python3-dev \
+    python3-setuptools \
     gcc \
     make
 
