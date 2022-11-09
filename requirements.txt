@@ -6,7 +6,7 @@ bs4
 requests
 sklearn
 torch
-transformers
+transformers==2.8.0
 pydantic
 requests
 pytest
