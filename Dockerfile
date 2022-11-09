@@ -18,6 +18,9 @@ RUN apt-get update && \
 # Create a virtual environment in /opt
 RUN python3 -m venv /opt/venv
 
+RUN /opt/venv/bin/pip install --upgrade pip
+
+
 # Install requirments to new virtual environment
 RUN /opt/venv/bin/pip install -r requirements.txt
 
