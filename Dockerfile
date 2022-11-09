@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.9
 
 COPY . /app
 WORKDIR /app
@@ -10,16 +10,13 @@ RUN python src/download/download_model
 RUN apt-get update && \
     apt-get install -y \
     build-essential \
-    python3-dev \
-    python3-setuptools \
+    # python3-dev \
+    # python3-setuptools \
     gcc \
     make
 
 # Create a virtual environment in /opt
 RUN python3 -m venv /opt/venv
-
-RUN /opt/venv/bin/pip install --upgrade pip
-
 
 # Install requirments to new virtual environment
 RUN /opt/venv/bin/pip install -r requirements.txt
