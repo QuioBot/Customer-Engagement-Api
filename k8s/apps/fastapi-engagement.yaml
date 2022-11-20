@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fastapi-customer-deployment
+  name: fastapi-engagement-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fastapi-customer-deployment
+      app: fastapi-engagement-deployment
   template:
     metadata:
       labels:
-        app: fastapi-customer-deployment
+        app: fastapi-engagement-deployment
     spec:
       containers:
-        - name: fastapi-customer
-          image: elghibaomar/fastapi-customer:latest
+        - name: fastapi-engagement
+          image: elghibaomar/fastapi-k8s-web-engagement:latest
           env:
             - name: PORT
               value: "8181"
@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: fastapi-customer-service
+  name: fastapi-engagement-service
 spec:
   type: LoadBalancer
   ports:
@@ -36,4 +36,4 @@ spec:
       port: 80
       targetPort: 8181
   selector:
-    app: fastapi-customer-deployment
+    app: fastapi-engagement-deployment
