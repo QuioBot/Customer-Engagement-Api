@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fastapi-engagement-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: fastapi-engagement-deployment
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: fastapi-engagement
-          image: elghibaomar/fastapi-k8s-web-engagement:latest
+          image: elghibaomar/fastapi-engagement:latest
           env:
             - name: PORT
               value: "8181"
